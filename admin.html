@@ -139,19 +139,7 @@ body{background:var(--void);color:var(--text);font-family:'Syne',sans-serif;min-
 <canvas id="bg-canvas"></canvas>
 
 <!-- ── GATE ── -->
-<div id="gate">
-  <div class="gate-box">
-    <div class="gate-eyebrow">Restricted access</div>
-    <h1 class="gate-title">The<br/><em>Architect</em></h1>
-    <p class="gate-sub">Enter your key to access the studio</p>
-    <div class="gate-input-wrap">
-      <input class="gate-input" id="gate-input" type="password" placeholder="Admin key" autocomplete="current-password"
-             onkeydown="if(event.key==='Enter')unlock()"/>
-    </div>
-    <button class="gate-btn" onclick="unlock()">Enter the studio</button>
-    <div class="gate-error" id="gate-error">Incorrect key. The archive remains closed.</div>
-  </div>
-</div>
+
 
 <!-- ── APP ── -->
 <div id="app">
