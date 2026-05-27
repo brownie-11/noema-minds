@@ -1709,7 +1709,6 @@ const mmCtx=mmC.getContext('2d');
 // ── Base nodes — IMMUTABLE, never modified or deleted ──────────
 const BASE_NODES=[
   {id:0,label:'The Watcher Within',cat:'consciousness',hex:'#c8a97e',body:'Who observes the observer? At the boundary of introspection lies infinite recursion — the eye that cannot see itself yet shapes everything it touches.',x:.50,y:.44,r:24},
-  {id:0,label:'The Watcher Within',cat:'consciousness',hex:'#c8a97e',body:'Who observes the observer? At the boundary of introspection lies infinite recursion — the eye that cannot see itself yet shapes everything it touches.',x:.50,y:.44,r:24},
   {id:1,label:'The Permission of Being',cat:'existence',hex:'#c8a07e',body:'Nobody asked to be here. And yet here we are, inventing reasons to stay, to build, to leave marks on a world that will outlast our reasons.',x:.22,y:.28,r:18},
   {id:2,label:'Simultaneity of Grief',cat:'time',hex:'#8bb5c8',body:'Past and present collapse in loss. The person grieving now is also the child who did not yet know grief was already on its way.',x:.78,y:.26,r:19},
   {id:3,label:'Cartography of Attachment',cat:'love',hex:'#a07ec8',body:'To love is to memorize someone. Their particular weight of silence. A geography that becomes your own internal landscape.',x:.15,y:.62,r:16},
@@ -1867,7 +1866,7 @@ mmC.addEventListener('mousemove',e=>{
   const dx=sx-mmLastMouse.x, dy=sy-mmLastMouse.y;
   if(Math.abs(dx)+Math.abs(dy)>2) mmDragMoved=true;
   if(mmDragNode){
-    const w=toWorld(sx,sy);
+    const w=toWorld(sx,sy);      
     mmDragNode.x=Math.max(0.03,Math.min(.97,w.fx-mmDragStartWorld.fx));
     mmDragNode.y=Math.max(0.03,Math.min(.97,w.fy-mmDragStartWorld.fy));
     mmC.style.cursor='grabbing';
