@@ -18,27 +18,26 @@ html{scroll-behavior:smooth;font-size:16px}
 body{background:var(--void);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;overflow-x:hidden}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 
-/* ── PARTICLES ── */
 #bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.55}
 
-/* ── NAV ── */
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;border-bottom:1px solid var(--border);backdrop-filter:blur(24px);background:rgba(3,4,10,0.7)}
-.logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;letter-spacing:.12em;color:var(--text);cursor:pointer;text-decoration:none;display:block}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;letter-spacing:.12em;color:var(--text);text-decoration:none}
 .logo span{color:var(--accent)}
 .nav-links{display:flex;gap:2rem;align-items:center}
-.nav-link{font-size:.78rem;letter-spacing:.14em;color:var(--muted);cursor:pointer;text-transform:uppercase;transition:color .3s;text-decoration:none}
+.nav-link{font-size:.78rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;transition:color .3s;text-decoration:none}
 .nav-link:hover,.nav-link.active{color:var(--text)}
 .nav-btn{font-family:'Syne',sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem 1.4rem;border:1px solid var(--border2);background:var(--glass);color:var(--text);cursor:pointer;transition:all .3s;border-radius:2px;text-decoration:none;display:inline-block}
 .nav-btn:hover{background:var(--glass2);border-color:var(--accent)}
 
-/* ── HERO ── */
+/* HERO */
 .thoughts-hero{min-height:55vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 4rem;position:relative;z-index:1}
 .hero-eyebrow{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:1.8rem;opacity:.8}
 .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:300;line-height:1.05;letter-spacing:-.01em;margin-bottom:1.4rem;background:linear-gradient(160deg,#e8e4dc 30%,#c8a97e 70%,#8bb5c8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-title em{font-style:italic;font-weight:300}
 .hero-sub{font-size:1rem;line-height:1.8;color:var(--muted);max-width:500px;font-weight:300}
 
-/* ── FILTER STRIP ── */
+/* FILTER */
 .filter-strip{position:relative;z-index:1;padding:0 2rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(7,9,15,.6);backdrop-filter:blur(12px)}
 .filter-inner{max-width:1100px;margin:0 auto;display:flex;gap:.4rem;flex-wrap:wrap;padding:1rem 0;align-items:center}
 .filter-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-right:.4rem;opacity:.7}
@@ -46,11 +45,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .filter-tag:hover,.filter-tag.active{color:var(--text);border-color:var(--accent);background:rgba(200,169,126,.08)}
 .thoughts-count{margin-left:auto;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;color:var(--muted);opacity:.6}
 
-/* ── GRID ── */
+/* GRID */
 .thoughts-section{position:relative;z-index:1;padding:4rem 2rem 8rem}
 .thoughts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;max-width:1100px;margin:0 auto;border:1px solid var(--border)}
 
-/* ── THOUGHT CARD ── */
+/* CARD */
 .t-card{padding:2.2rem;background:var(--surface);border-right:1px solid var(--border);border-bottom:1px solid var(--border);cursor:pointer;transition:background .3s;position:relative;overflow:hidden}
 .t-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .4s}
 .t-card:hover{background:rgba(200,169,126,.035)}
@@ -62,57 +61,49 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .tc-author{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.08em}
 .tc-read{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);opacity:0;transition:opacity .3s}
 .t-card:hover .tc-read{opacity:.8}
-.tc-date{font-family:'DM Mono',monospace;font-size:.56rem;color:rgba(122,118,114,.5);letter-spacing:.06em}
 
-/* ── STATES ── */
-.thoughts-loading{grid-column:1/-1;padding:5rem;text-align:center}
-.loading-orb{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);margin:0 auto 1.5rem;animation:orbPulse 1.8s ease-in-out infinite}
-@keyframes orbPulse{0%,100%{opacity:1;box-shadow:0 0 8px var(--accent)}50%{opacity:.3;box-shadow:0 0 20px var(--accent)}}
-.loading-text{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);opacity:.7}
-.thoughts-empty{grid-column:1/-1;padding:5rem;text-align:center}
-.empty-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;font-style:italic;color:rgba(232,228,220,.3);margin-bottom:.8rem}
-.empty-sub{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:.5}
-.thoughts-error{grid-column:1/-1;padding:3rem;text-align:center;border:1px solid rgba(200,126,138,.2);background:rgba(200,126,138,.03);margin:.5rem}
-.error-text{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#c87e8a;opacity:.8}
+/* EMPTY STATE */
+.thoughts-empty{grid-column:1/-1;padding:6rem 2rem;text-align:center}
+.empty-orb{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);margin:0 auto 2rem;opacity:.4}
+.empty-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;font-style:italic;color:rgba(232,228,220,.28);margin-bottom:.8rem}
+.empty-sub{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);opacity:.4;line-height:1.8}
 
-/* ── READ MODAL ── */
-.read-overlay{display:none;position:fixed;inset:0;z-index:300;background:rgba(3,4,10,.94);backdrop-filter:blur(14px);align-items:flex-start;justify-content:center;padding:5rem 1.5rem 2rem;overflow-y:auto}
+/* READ MODAL */
+.read-overlay{display:none;position:fixed;inset:0;z-index:300;background:rgba(3,4,10,.95);backdrop-filter:blur(16px);align-items:flex-start;justify-content:center;padding:5rem 1.5rem 2rem;overflow-y:auto}
 .read-overlay.open{display:flex}
 .read-modal{width:min(720px,100%);background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;animation:modalIn .4s ease;margin:auto}
-@keyframes modalIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-.rm-header{padding:2rem 2.5rem 1.5rem;border-bottom:1px solid var(--border)}
-.rm-cat{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;opacity:.8}
+@keyframes modalIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.rm-header{padding:2.2rem 2.5rem 1.6rem;border-bottom:1px solid var(--border)}
+.rm-cat{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;opacity:.8}
 .rm-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;line-height:1.1}
-.rm-meta{display:flex;align-items:center;gap:1.2rem;margin-top:1rem;flex-wrap:wrap}
+.rm-meta{display:flex;align-items:center;gap:1.2rem;margin-top:.9rem;flex-wrap:wrap}
 .rm-author{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--muted)}
-.rm-date{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.08em;color:rgba(122,118,114,.5)}
-.rm-body{padding:2.5rem;font-family:'Cormorant Garamond',serif;font-size:1.1rem;line-height:1.95;color:rgba(232,228,220,.82);white-space:pre-wrap}
-.rm-footer{padding:1.2rem 2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.rm-date{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.08em;color:rgba(122,118,114,.45)}
+.rm-body{padding:2.5rem;font-family:'Cormorant Garamond',serif;font-size:1.12rem;line-height:2;color:rgba(232,228,220,.82);white-space:pre-wrap}
+.rm-footer{padding:1.2rem 2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem}
 .rm-close-btn{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;padding:.55rem 1.2rem;border:1px solid var(--border2);background:var(--glass);color:var(--muted);cursor:pointer;border-radius:2px;transition:all .3s}
 .rm-close-btn:hover{color:var(--text);border-color:var(--accent)}
 .rm-nav{display:flex;gap:.5rem}
 .rm-nav-btn{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.5rem .9rem;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;border-radius:2px;transition:all .3s}
 .rm-nav-btn:hover{color:var(--text);border-color:var(--border2)}
-.rm-nav-btn:disabled{opacity:.25;cursor:default}
+.rm-nav-btn:disabled{opacity:.2;cursor:default;pointer-events:none}
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer{position:relative;z-index:1;padding:3.5rem 3rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
-.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;letter-spacing:.1em;color:rgba(232,228,220,.28)}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;letter-spacing:.1em;color:rgba(232,228,220,.25)}
 .footer-tag{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
 
-/* ── NOTIF ── */
-.notif{position:fixed;bottom:2rem;right:2rem;z-index:400;padding:.9rem 1.4rem;background:var(--surface);border:1px solid rgba(200,169,126,.3);border-radius:2px;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;opacity:0;transform:translateY(6px);transition:all .35s;pointer-events:none}
-.notif.show{opacity:1;transform:none}
-
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media(max-width:768px){
   nav{padding:1rem 1.2rem}
   .nav-links{gap:1.2rem}
-  .nav-link:not(.always){display:none}
-  .thoughts-hero{min-height:45vh;padding:7rem 1.5rem 3rem}
+  .nav-link.hide-mobile{display:none}
+  .thoughts-hero{padding:7rem 1.5rem 3rem;min-height:42vh}
   .thoughts-section{padding:3rem 1rem 6rem}
-  .read-overlay{padding:4rem 1rem 1rem}
-  .rm-header,.rm-body,.rm-footer{padding-left:1.5rem;padding-right:1.5rem}
+  .read-overlay{padding:3.5rem .8rem 1rem}
+  .rm-header{padding:1.6rem 1.4rem 1.2rem}
+  .rm-body{padding:1.5rem 1.4rem}
+  .rm-footer{padding:1rem 1.4rem}
   footer{padding:2.5rem 1.5rem}
 }
 </style>
@@ -124,49 +115,41 @@ footer{position:relative;z-index:1;padding:3.5rem 3rem;border-top:1px solid var(
 <nav>
   <a class="logo" href="index.html">N<span>◦</span>ema</a>
   <div class="nav-links">
-    <a class="nav-link always" href="index.html">Home</a>
-    <a class="nav-link active always" href="thoughts.html">Thoughts</a>
+    <a class="nav-link hide-mobile" href="index.html">Home</a>
+    <a class="nav-link active" href="thoughts.html">Thoughts</a>
   </div>
   <a class="nav-btn" href="index.html">&#8592; Back to Noema</a>
 </nav>
 
-<!-- HERO -->
 <section class="thoughts-hero">
   <div class="hero-eyebrow">The living archive</div>
   <h1 class="hero-title">Thoughts that<br/><em>refuse to leave.</em></h1>
   <p class="hero-sub">A curated collection of philosophical fragments, realizations, and ideas placed here to be found.</p>
 </section>
 
-<!-- FILTER -->
 <div class="filter-strip">
   <div class="filter-inner">
     <span class="filter-label">Filter</span>
-    <div id="filter-tags">
+    <div id="filter-tags" style="display:flex;gap:.4rem;flex-wrap:wrap">
       <button class="filter-tag active" data-cat="all">All</button>
     </div>
     <span class="thoughts-count" id="thoughts-count"></span>
   </div>
 </div>
 
-<!-- GRID -->
 <section class="thoughts-section">
-  <div class="thoughts-grid" id="thoughts-grid">
-    <div class="thoughts-loading">
-      <div class="loading-orb"></div>
-      <div class="loading-text">Retrieving thoughts from the archive…</div>
-    </div>
-  </div>
+  <div class="thoughts-grid" id="thoughts-grid"></div>
 </section>
 
 <!-- READ MODAL -->
 <div class="read-overlay" id="read-overlay">
-  <div class="read-modal" id="read-modal">
+  <div class="read-modal">
     <div class="rm-header">
-      <div class="rm-cat" id="rm-cat"></div>
+      <div class="rm-cat"  id="rm-cat"></div>
       <div class="rm-title" id="rm-title"></div>
       <div class="rm-meta">
         <span class="rm-author" id="rm-author"></span>
-        <span class="rm-date" id="rm-date"></span>
+        <span class="rm-date"   id="rm-date"></span>
       </div>
     </div>
     <div class="rm-body" id="rm-body"></div>
@@ -180,19 +163,187 @@ footer{position:relative;z-index:1;padding:3.5rem 3rem;border-top:1px solid var(
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">N◦ema</div>
   <div class="footer-tag">A living universe of thought</div>
 </footer>
 
-<div class="notif" id="notif"></div>
-
 <script>
-// ── Config ────────────────────────────────────────────────────────────────────
-const API = 'https://noema-minds-production.up.railway.app';   // ← change to your deployed URL
+// ─── Storage key (shared with admin.html) ─────────────────────────────────────
+const STORAGE_KEY = 'noema_thoughts_db';
 
-// ── Background particles (exact same as index.html) ──────────────────────────
+// ─── Seed thoughts — shown until you add your own via admin ──────────────────
+const SEEDS = [
+  {
+    id: 1,
+    title: 'The Watcher Within',
+    body: 'Who observes the observer? At the boundary of introspection lies an infinite recursion — the eye that cannot see itself, yet shapes everything it touches.\n\nEvery act of self-examination creates a new self doing the examining. We are not one mind but a hall of mirrors, each reflection slightly different from the last.',
+    excerpt: 'Who observes the observer? At the boundary of introspection lies an infinite recursion — the eye that cannot see itself, yet shapes everything it touches.',
+    category: 'consciousness',
+    author: 'The Architect',
+    created_at: '2024-01-15T10:00:00Z'
+  },
+  {
+    id: 2,
+    title: 'The Permission of Being',
+    body: 'Nobody asked to be here. And yet here we are, inventing reasons to stay, to build, to leave marks on a world that will outlast our reasons.\n\nPerhaps the most radical act is simply to accept the invitation that was never given — to live as though existence itself is enough justification for existing.',
+    excerpt: 'Nobody asked to be here. And yet here we are, inventing reasons to stay, to build, to leave marks on a world that will outlast our reasons.',
+    category: 'existence',
+    author: 'The Architect',
+    created_at: '2024-01-18T10:00:00Z'
+  },
+  {
+    id: 3,
+    title: 'Simultaneity of Grief',
+    body: 'Past and present collapse in loss. The person grieving now is also the child who did not yet know grief was already on its way.\n\nTime reveals itself as a fiction the moment someone we love disappears. We do not grieve linearly. We grieve in all directions at once.',
+    excerpt: 'Past and present collapse in loss. The person grieving now is also the child who did not yet know grief was already on its way.',
+    category: 'time',
+    author: 'The Architect',
+    created_at: '2024-01-22T10:00:00Z'
+  },
+  {
+    id: 4,
+    title: 'Language Before Thought',
+    body: 'Does the word precede the thought, or does the thought precede the word? Perhaps there are ideas that exist only in the silence between — shapeless, pre-verbal, closer to music than meaning.\n\nSome things are destroyed by being named. We reach for language and the thing withdraws, leaving only its outline.',
+    excerpt: 'Does the word precede the thought, or does the thought precede the word? Perhaps there are ideas that exist only in the silence between.',
+    category: 'language',
+    author: 'The Architect',
+    created_at: '2024-02-01T10:00:00Z'
+  },
+  {
+    id: 5,
+    title: 'Cartography of Attachment',
+    body: 'To love is to memorize someone. Their particular weight of silence. The specific way they hesitate before speaking something true. A geography that becomes your own internal landscape, so that when they are gone you are left wandering a map of someone who no longer exists in the world but only inside you.',
+    excerpt: 'To love is to memorize someone. Their particular weight of silence. A geography that becomes your own internal landscape.',
+    category: 'love',
+    author: 'The Architect',
+    created_at: '2024-02-08T10:00:00Z'
+  },
+  {
+    id: 6,
+    title: 'Void as Foundation',
+    body: 'Perhaps the void is not the absence of meaning but the precondition for it. Emptiness is what makes a vessel capable of holding anything.\n\nWe fear the silence between thoughts, not realizing it is where the next thought is being formed. The pause is not nothing. It is everything, waiting.',
+    excerpt: 'Perhaps the void is not the absence of meaning but the precondition for it. Emptiness is what makes a vessel capable of holding anything.',
+    category: 'philosophy',
+    author: 'The Architect',
+    created_at: '2024-02-14T10:00:00Z'
+  }
+];
+
+// ─── Load thoughts from localStorage (or use seeds if empty) ─────────────────
+function loadThoughts() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    }
+  } catch(_) {}
+  return JSON.parse(JSON.stringify(SEEDS)); // deep copy seeds
+}
+
+// ─── State ────────────────────────────────────────────────────────────────────
+let allThoughts = loadThoughts();
+let filtered    = [...allThoughts];
+let currentCat  = 'all';
+let openIdx     = -1;
+
+// ─── Render grid ──────────────────────────────────────────────────────────────
+function renderGrid() {
+  const grid  = document.getElementById('thoughts-grid');
+  const count = document.getElementById('thoughts-count');
+
+  // Sort newest first
+  const sorted = [...filtered].sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
+
+  count.textContent = sorted.length + ' thought' + (sorted.length !== 1 ? 's' : '');
+
+  if (!sorted.length) {
+    grid.innerHTML = `<div class="thoughts-empty">
+      <div class="empty-orb"></div>
+      <div class="empty-title">The archive is silent here.</div>
+      <div class="empty-sub">No thoughts in this category yet.<br/>Add some from the admin studio.</div>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = sorted.map((t, i) => `
+    <article class="t-card" onclick="openThought(${i})">
+      <div class="tc-cat">${esc(t.category)}</div>
+      <div class="tc-title">${esc(t.title)}</div>
+      <div class="tc-excerpt">${esc(t.excerpt || t.body)}</div>
+      <div class="tc-footer">
+        <span class="tc-author">${esc(t.author)}</span>
+        <span class="tc-read">Read &#8599;</span>
+      </div>
+    </article>`).join('');
+
+  // Store sorted version for modal navigation
+  filtered = sorted;
+}
+
+// ─── Category filter ──────────────────────────────────────────────────────────
+function buildFilters() {
+  const cats = [...new Set(allThoughts.map(t => t.category).filter(Boolean))].sort();
+  const wrap = document.getElementById('filter-tags');
+  wrap.innerHTML = '<button class="filter-tag active" data-cat="all" onclick="setFilter(\'all\', this)">All</button>';
+  cats.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className   = 'filter-tag';
+    btn.dataset.cat = cat;
+    btn.textContent = cat;
+    btn.onclick = () => setFilter(cat, btn);
+    wrap.appendChild(btn);
+  });
+}
+
+function setFilter(cat, el) {
+  currentCat = cat;
+  document.querySelectorAll('.filter-tag').forEach(b => b.classList.remove('active'));
+  if (el) el.classList.add('active');
+  filtered = cat === 'all' ? [...allThoughts] : allThoughts.filter(t => t.category === cat);
+  renderGrid();
+}
+
+// ─── Modal ────────────────────────────────────────────────────────────────────
+function openThought(idx) {
+  openIdx = idx;
+  const t = filtered[idx];
+  if (!t) return;
+  document.getElementById('rm-cat').textContent    = t.category;
+  document.getElementById('rm-title').textContent  = t.title;
+  document.getElementById('rm-author').textContent = t.author;
+  document.getElementById('rm-date').textContent   = fmtDate(t.created_at);
+  document.getElementById('rm-body').textContent   = t.body;
+  document.getElementById('rm-prev').disabled = idx === 0;
+  document.getElementById('rm-next').disabled = idx === filtered.length - 1;
+  document.getElementById('read-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.querySelector('.read-modal').scrollTop = 0;
+}
+
+function closeModal() {
+  document.getElementById('read-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function navThought(dir) {
+  const next = openIdx + dir;
+  if (next >= 0 && next < filtered.length) openThought(next);
+}
+
+document.getElementById('read-overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('read-overlay')) closeModal();
+});
+
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('read-overlay').classList.contains('open')) return;
+  if (e.key === 'Escape')      closeModal();
+  if (e.key === 'ArrowLeft')   navThought(-1);
+  if (e.key === 'ArrowRight')  navThought(1);
+});
+
+// ─── Background particles ─────────────────────────────────────────────────────
 (function(){
   const c=document.getElementById('bg-canvas'),x=c.getContext('2d');
   let pts=[];
@@ -223,160 +374,26 @@ const API = 'https://noema-minds-production.up.railway.app';   // ← change to 
   })();
 })();
 
-// ── State ─────────────────────────────────────────────────────────────────────
-let allThoughts   = [];
-let filtered      = [];
-let currentCat    = 'all';
-let openIdx       = -1;
+// ─── Utilities ────────────────────────────────────────────────────────────────
+function esc(s){ if(!s)return''; return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function fmtDate(iso){
+  if(!iso)return'';
+  try{ return new Date(iso).toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'}); }catch(_){return'';}
+}
 
-// ── Fetch thoughts ─────────────────────────────────────────────────────────
-async function loadThoughts(cat = 'all') {
-  const grid = document.getElementById('thoughts-grid');
-  grid.innerHTML = `<div class="thoughts-loading"><div class="loading-orb"></div><div class="loading-text">Retrieving thoughts from the archive…</div></div>`;
-  try {
-    const url = cat === 'all' ? `${API}/thoughts` : `${API}/thoughts?category=${encodeURIComponent(cat)}`;
-    const res  = await fetch(url);
-    if (!res.ok) throw new Error(`${res.status}`);
-    const data = await res.json();
-    allThoughts = data;
-    filtered    = data;
+// ─── Init ─────────────────────────────────────────────────────────────────────
+buildFilters();
+renderGrid();
+
+// Listen for storage changes (admin panel open in another tab)
+window.addEventListener('storage', e => {
+  if (e.key === STORAGE_KEY) {
+    allThoughts = loadThoughts();
+    filtered    = currentCat === 'all' ? [...allThoughts] : allThoughts.filter(t => t.category === currentCat);
+    buildFilters();
     renderGrid();
-  } catch(err) {
-    grid.innerHTML = `<div class="thoughts-error"><div class="error-text">Could not reach the archive — ${err.message}</div></div>`;
-    console.error('Thoughts fetch error:', err);
-  }
-}
-
-async function loadCategories() {
-  try {
-    const res  = await fetch(`${API}/categories`);
-    const data = await res.json();
-    buildFilterTags(data.categories || []);
-  } catch(_) { /* fail silently — All tag still works */ }
-}
-
-// ── Render ────────────────────────────────────────────────────────────────────
-function renderGrid() {
-  const grid  = document.getElementById('thoughts-grid');
-  const count = document.getElementById('thoughts-count');
-  count.textContent = filtered.length + ' thought' + (filtered.length !== 1 ? 's' : '');
-
-  if (!filtered.length) {
-    grid.innerHTML = `<div class="thoughts-empty">
-      <div class="empty-title">The archive is silent here.</div>
-      <div class="empty-sub">No thoughts in this category yet</div>
-    </div>`;
-    return;
-  }
-
-  grid.innerHTML = filtered.map((t, i) => `
-    <article class="t-card" onclick="openThought(${i})" data-id="${t.id}">
-      <div class="tc-cat">${t.category}</div>
-      <div class="tc-title">${escHtml(t.title)}</div>
-      <div class="tc-excerpt">${escHtml(t.excerpt || t.body)}</div>
-      <div class="tc-footer">
-        <span class="tc-author">${escHtml(t.author)}</span>
-        <span class="tc-read">Read &#8599;</span>
-      </div>
-    </article>`).join('');
-}
-
-function buildFilterTags(cats) {
-  const wrap = document.getElementById('filter-tags');
-  // Keep "All" then add each category
-  const all  = wrap.querySelector('[data-cat="all"]');
-  wrap.innerHTML = '';
-  wrap.appendChild(all);
-  cats.forEach(cat => {
-    if (!cat) return;
-    const btn = document.createElement('button');
-    btn.className    = 'filter-tag';
-    btn.dataset.cat  = cat;
-    btn.textContent  = cat;
-    btn.onclick      = () => setFilter(cat);
-    wrap.appendChild(btn);
-  });
-  all.onclick = () => setFilter('all');
-}
-
-function setFilter(cat) {
-  currentCat = cat;
-  document.querySelectorAll('.filter-tag').forEach(b => {
-    b.classList.toggle('active', b.dataset.cat === cat);
-  });
-  if (cat === 'all') {
-    filtered = allThoughts;
-    renderGrid();
-  } else {
-    loadThoughts(cat);
-  }
-}
-
-// ── Modal ─────────────────────────────────────────────────────────────────────
-function openThought(idx) {
-  openIdx = idx;
-  const t = filtered[idx];
-  if (!t) return;
-  document.getElementById('rm-cat').textContent   = t.category;
-  document.getElementById('rm-title').textContent = t.title;
-  document.getElementById('rm-author').textContent = t.author;
-  document.getElementById('rm-date').textContent  = formatDate(t.created_at);
-  document.getElementById('rm-body').textContent  = t.body;
-  document.getElementById('rm-prev').disabled = idx === 0;
-  document.getElementById('rm-next').disabled = idx === filtered.length - 1;
-  document.getElementById('read-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  // scroll modal to top
-  document.getElementById('read-modal').scrollTop = 0;
-}
-
-function closeModal() {
-  document.getElementById('read-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-  openIdx = -1;
-}
-
-function navThought(dir) {
-  const next = openIdx + dir;
-  if (next >= 0 && next < filtered.length) openThought(next);
-}
-
-// Close on backdrop click
-document.getElementById('read-overlay').addEventListener('click', e => {
-  if (e.target === document.getElementById('read-overlay')) closeModal();
-});
-
-// Keyboard nav
-document.addEventListener('keydown', e => {
-  if (document.getElementById('read-overlay').classList.contains('open')) {
-    if (e.key === 'Escape') closeModal();
-    if (e.key === 'ArrowLeft')  navThought(-1);
-    if (e.key === 'ArrowRight') navThought(1);
   }
 });
-
-// ── Utilities ─────────────────────────────────────────────────────────────────
-function escHtml(s) {
-  if (!s) return '';
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-function formatDate(iso) {
-  if (!iso) return '';
-  try {
-    return new Date(iso).toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
-  } catch(_){ return iso; }
-}
-function notify(msg) {
-  const n = document.getElementById('notif');
-  n.textContent = msg;
-  n.classList.add('show');
-  setTimeout(() => n.classList.remove('show'), 3000);
-}
-
-// ── Boot ──────────────────────────────────────────────────────────────────────
-(async function init() {
-  await Promise.all([loadThoughts(), loadCategories()]);
-})();
 </script>
 </body>
 </html>
